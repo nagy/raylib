@@ -3638,6 +3638,8 @@ static bool InitGraphicsDevice(int width, int height)
     //glfwWindowHint(GLFW_REFRESH_RATE, 0);         // Refresh rate for fullscreen window
     //glfwWindowHint(GLFW_CLIENT_API, GLFW_OPENGL_API); // OpenGL API to use. Alternative: GLFW_OPENGL_ES_API
     //glfwWindowHint(GLFW_AUX_BUFFERS, 0);          // Number of auxiliar buffers
+    glfwWindowHintString(GLFW_X11_CLASS_NAME, "Raylib");
+    glfwWindowHintString(GLFW_X11_INSTANCE_NAME, "Raylib");
 
     // Check window creation flags
     if ((CORE.Window.flags & FLAG_FULLSCREEN_MODE) > 0) CORE.Window.fullscreen = true;
@@ -3679,6 +3681,7 @@ static bool InitGraphicsDevice(int width, int height)
     #endif
     }
     else glfwWindowHint(GLFW_SCALE_TO_MONITOR, GLFW_FALSE);
+    glfwWindowHintString(GLFW_X11_CLASS_NAME, "Raylib");
 #endif
 
     if (CORE.Window.flags & FLAG_MSAA_4X_HINT)
