@@ -3801,6 +3801,7 @@ static bool InitGraphicsDevice(int width, int height)
     }
     else
     {
+        if( getenv("GLFW_WINDOW_HIDDEN") ) { glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE); }
         // No-fullscreen window creation
         CORE.Window.handle = glfwCreateWindow(CORE.Window.screen.width, CORE.Window.screen.height, (CORE.Window.title != 0)? CORE.Window.title : " ", NULL, NULL);
 
