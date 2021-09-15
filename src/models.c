@@ -635,14 +635,14 @@ void DrawCylinderWires(Vector3 position, float radiusTop, float radiusBottom, fl
 }
 
 // Draw a plane
-void DrawPlane(Vector3 centerPos, Vector2 size, Color color)
+void DrawPlane(Vector3 *centerPos, Vector2 *size, Color color)
 {
     rlCheckRenderBatchLimit(4);
 
     // NOTE: Plane is always created on XZ ground
     rlPushMatrix();
-        rlTranslatef(centerPos.x, centerPos.y, centerPos.z);
-        rlScalef(size.x, 1.0f, size.y);
+        rlTranslatef(centerPos->x, centerPos->y, centerPos->z);
+        rlScalef(size->x, 1.0f, size->y);
 
         rlBegin(RL_QUADS);
             rlColor4ub(color.r, color.g, color.b, color.a);
